@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to CSS layout</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+<nav id="navbar">
+      <header>CSS layout documentation</header>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li>
+          <a class="nav-link" href="#Normal_flow">Normal flow</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#The_display_property">The display property</a>
+        </li>
+        <li><a class="nav-link" href="#Flexbox">Flexbox</a></li>
+        <li><a class="nav-link" href="#Grid_layout">Grid layout</a></li>
+        <li>
+          <a class="nav-link" href="#Floats"
+            >Floats</a
+          >
+        </li>
+        <li><a class="nav-link" href="#Positioning_techniques">Positioning techniques</a></li>
+        <li>
+          <a class="nav-link" href="#Table_layout">Table layout</a>
+        </li>
+        <li><a class="nav-link" href="#Multi-column_layout">Multi-column layout</a></li>
+        <li><a class="nav-link" href="#Summary">Summary</a></li>
+      </ul>
+    </nav>
+
+  <main id="main-doc">
+    <h1>Introduction to CSS layout</h1>
+    <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+      <p>This article will recap some of the CSS layout features we've already touched upon in previous modules, such as different <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank"><span class="background">display</span></a> values, as well as introduce some of the concepts we'll be covering throughout this module.</p>
+
+      <table>
+        <tr>
+          <td>Prerequisites:</td>
+          <td>The basics of HTML (study <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" target="_blank">Introduction to HTML</a>), and an idea of How CSS works (study <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps" target="_blank">Introduction to CSS</a>.)</td>
+        </tr>
+        <tr>
+          <td>Objective:</td>
+          <td>To give you an overview of CSS page layout techniques. Each technique can be learned in greater detail in subsequent tutorials.</td>
+        </tr>
+      </table>
+
+      <p>CSS page layout techniques allow us to take elements contained in a web page and control where they're positioned relative to the following factors: their default position in normal layout flow, the other elements around them, their parent container, and the main viewport/window. The page layout techniques we'll be covering in more detail in this module are:</p>
+
+      <ul>
+        <li>Normal flow</li>
+        <li>The <span class="background">display</span> property</li>
+        <li>Flexbox</li>
+        <li>Grid</li>
+        <li>Floats</li>
+        <li>Positioning</li>
+        <li>Table layout</li>
+        <li>Multiple-column layout</li>
+      </ul>
+
+      <p>Each technique has its uses, advantages, and disadvantages. No technique is designed to be used in isolation. By understanding what each layout method is designed for you'll be in a good position to understand which method is most appropriate for each task.</p> 
+</section>
+<section class="main-section" id="Normal_flow">
+    <header>Normal flow</header>
+
+    <p>Normal flow is how the browser lays out HTML pages by default when you do nothing to control page layout. Let's look at a quick HTML example:</p>
+
+    <code class="code"><xmp>
+<p>I love my cat.</p>
+
+<ul>
+  <li>Buy cat food</li>
+  <li>Exercise</li>
+  <li>Cheer up friend</li>
+</ul>
+
+<p>The end!</p>
+          </xmp></code>
+
+    <p>Note how the HTML is displayed in the exact order in which it appears in the source code, with elements stacked on top of one another — the first paragraph, followed by the unordered list, followed by the second paragraph.</p>
+
+<p>The elements that appear one below the other are described as <span class="bold">block</span> elements, in contrast to <span class="bold">inline</span> elements, which appear beside one another like the individual words in a paragraph.</p>
+
+<p>For many of the elements on your page, the normal flow will create exactly the layout you need. However, for more complex layouts you will need to alter this default behavior using some of the tools available to you in CSS. Starting with a well-structured HTML document is very important because you can then work with the way things are laid out by default rather than fighting against it.</p>
+
+<p>The methods that can change how elements are laid out in CSS are:</p>
+
+<ul>
+  <li><span class="bold">The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank"><span class="background">display</span></a> property</span> — Standard values such as <span class="background">block</span>, <span class="background">inline</span> or <span class="background">inline-block</span> can change how elements behave in normal flow, for example, by making a block-level element behave like an inline-level element (see <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#block_and_inline_boxes" target="_blank">Types of CSS boxes</a> for more information). We also have entire layout methods that are enabled via specific <span class="background">display</span> values, for example, <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" target="_blank">CSS grid</a> and <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank">Flexbox</a>, which alter how child elements are laid out inside their parents.</li>
+  <li><span class="bold">Floats</span> — Applying a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" target="_blank"><span class="background">float</span></a> value such as <span class="background">left</span> can cause block-level elements to wrap along one side of an element, like the way images sometimes have text floating around them in magazine layouts.</li>
+  <li><span class="bold">The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank"><span class="background">position</span></a> property</span> — Allows you to precisely control the placement of boxes inside other boxes. <span class="background">static</span> positioning is the default in normal flow, but you can cause elements to be laid out differently using other values, for example, as fixed to the top of the browser viewport.</li>
+  <li><span class="bold">Table layout</span> — Features designed for styling parts of an HTML table can be used on non-table elements using <span class="background">display: table</span> and associated properties.</li>
+  <li><span class="bold"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_multicol_layout" target="_blank">Multi-column layout</a></span> — The Multi-column layout properties can cause the content of a block to lay out in columns, as you might see in a newspaper.</li>
+</ul>
+</section>
+
+<section class="main-section" id="The_display_property">
+<header>The display property</header>
+
+<p>The main methods for achieving page layout in CSS all involve specifying values for the <span class="background">display</span> property. This property allows us to change the default way something displays. Everything in normal flow has a default value for <span class="background">display</span>; i.e., a default way that elements are set to behave. For example, the fact that paragraphs in English display one below the other is because they are styled with <span class="background">display: block</span>. If you create a link around some text inside a paragraph, that link remains inline with the rest of the text, and doesn't break onto a new line. This is because the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank"><span class="background">&lta&gt</span></a> element is <span class="background">display: inline</span> by default.</p>
+
+<p>You can change this default display behavior. For example, the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li" target="_blank"><span class="background">&ltli&gt</span></a> element is <span class="background">display: block</span> by default, meaning that list items display one below the other in our English document. If we were to change the display value to <span class="background">inline</span> they would display next to each other, as words would do in a sentence. The fact that you can change the value of <span class="background">display</span> for any element means that you can pick HTML elements for their semantic meaning without being concerned about how they will look. The way they look is something that you can change.</p>
+
+<p>In addition to being able to change the default presentation by turning an item from <span class="background">block</span> to <span class="background">inline</span> and vice versa, there are some more involved layout methods that start out as a value of <span class="background">display</span>. However, when using these you will generally need to invoke additional properties. The two values most important for our discussion of layout are <span class="background">display: flex</span> and <span class="background">display: grid<span>.</p>
+</section>
+
+<section class="main-section" id="Flexbox">
+<header>Flexbox</header>
+
+<p>Flexbox is the short name for the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout" target="_blank">Flexible Box Layout</a> CSS module, designed to make it easy for us to lay things out in one dimension — either as a row or as a column. To use flexbox, you apply <span class="background">display: flex</span> to the parent element of the elements you want to lay out; all its direct children then become <i>flex items</i>. We can see this in a simple example.</p>
+
+<h3>Setting display: flex</h3>
+
+<p>The HTML markup below gives us a containing element with a class of <span class="background">wrapper</span>, inside of which are three <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div" target="_blank"><span class="background">&ltdiv&gt</span></a> elements. By default these would display as block elements, that is, below one another in our English language document.</p>
+
+<p>However, if we add <span class="background">display: flex</span> to the parent, the three items now arrange themselves into columns. This is due to them becoming <i>flex items</i> and being affected by some initial values that flexbox sets on the flex container. They are displayed in a row because the property <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction" target="_blank"><span class="background">flex-direction</span></a> of the parent element has an initial value of <span class="background">row</span>. They all appear to stretch in height because the property <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/align-items" target="_blank"><span class="background">align-items</span></a> of their parent element has an initial value of <span class="background">stretch</span>. This means that the items stretch to the height of the flex container, which in this case is defined by the tallest item. The items all line up at the start of the container, leaving any extra space at the end of the row.</p>
+
+<h3>Setting the flex property</h3>
+
+<p>In addition to properties that can be applied to a <i>flex container</i>, there are also properties that can be applied to <i>flex items</i>. These properties, among other things, can change the way that items <i>flex</i>, enabling them to expand or contract according to available space.</p>   
+
+<p>As a simple example, we can add the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/flex" target="_blank"><span class="background">flex</span></a> property to all of our child items, and give it a value of <span class="background">1</span>. This will cause all of the items to grow and fill the container, rather than leaving space at the end. If there is more space then the items will become wider; if there is less space they will become narrower. In addition, if you add another element to the markup, the other items will all become smaller to make space for it; the items all together continue taking up all the space.</p>
+</section>
+
+<section class="main-section" id="Grid_layout">
+<header>Grid layout</header>
+
+<p>While flexbox is designed for one-dimensional layout, Grid Layout is designed for two dimensions — lining things up in rows and columns.</p>
+
+<h3>Setting display: grid</h3>
+
+<p>Similar to flexbox, we enable grid layout with its specific display value — <span class="background">display: grid</span>. The below example uses similar markup to the flex example, with a container and some child elements. In addition to using <span class="background">display: grid</span>, we also define some row and column tracks for the parent using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows" target="_blank"><span class="background">grid-template-rows</span></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns" target="_blank"><span class="background">grid-template-columns</span></a> properties respectively. We've defined three columns, each of <span class="background">1fr</span>, as well as two rows of <span class="background">100px</span>. We don't need to put any rules on the child elements; they're automatically placed into the cells our grid's created.</p>
+
+<code class="code"><xmp>
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 100px;
+  gap: 10px;
+}
+</xmp></code>
+
+<code class="code"><xmp>
+<div class="wrapper">
+  <div class="box1">One</div>
+  <div class="box2">Two</div>
+  <div class="box3">Three</div>
+  <div class="box4">Four</div>
+  <div class="box5">Five</div>
+  <div class="box6">Six</div>
+</div>
+</xmp></code>
+
+<h3>Placing items on the grid</h3>
+
+<p>Once you have a grid, you can explicitly place your items on it, rather than relying on the auto-placement behavior seen above. In the next example below, we've defined the same grid, but this time with three child items. We've set the start and end line of each item using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column" target="_blank"><span class="background">grid-column</span></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row" target="_blank"><span class="background">grid-row</span></a> properties. This causes the items to span multiple tracks.</p>
+
+<code class="code"><xmp>
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 100px;
+  gap: 10px;
+}
+
+.box1 {
+  grid-column: 2 / 4;
+  grid-row: 1;
+}
+
+.box2 {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.box3 {
+  grid-row: 2;
+  grid-column: 3;
+}
+</xmp></code>
+
+<code class="code"><xmp>
+<div class="wrapper">
+  <div class="box1">One</div>
+  <div class="box2">Two</div>
+  <div class="box3">Three</div>
+</div>
+</xmp></code> 
+
+<p>The rest of this guide covers other layout methods that are less important for the main layout of your page, but still help to achieve specific tasks. By understanding the nature of each layout task you will soon find that when you look at a particular component of your design, the type of layout most suitable for it will often be clear.</p>
+</section>
+
+<section class="main-section" id="Floats">
+<header>Floats</header>
+
+<p>Floating an element changes the behavior of that element and the block level elements that follow it in normal flow. The floated element is moved to the left or right and removed from normal flow, and the surrounding content <i>floats</i> around it.</p>
+
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" target="_blank"><span class="background">float</span></a> property has four possible values:</p>
+
+<ul>
+  <li><span class="background">left</span> — Floats the element to the left.</li>
+  <li><span class="background">right</span> — Floats the element to the right.</li>
+  <li><span class="background">none</span> — Specifies no floating at all. This is the default value.</li>
+  <li><span class="background">inherit</span> — Specifies that the value of the <span class="background">float</span> property should be inherited from the element's parent element.</li>
+</ul>
+
+<p>In the example below, we float a <span class="background">&ltdiv&gt</span> left and give it a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/margin" target="_blank"><span class="background">margin</span></a> on the right to push the surrounding text away from it. This gives us the effect of text wrapped around the boxed element, and is most of what you need to know about floats as used in modern web design.</p>
+</section>
+
+<section class="main-section" id="Positioning_techniques">
+<header>Positioning techniques</header>
+
+<p>Positioning allows you to move an element from where it would otherwise be placed in normal flow over to another location. Positioning isn't a method for creating the main layouts of a page; it's more about managing and fine-tuning the position of specific items on a page.</p>
+
+<p>There are, however, useful techniques for obtaining specific layout patterns that rely on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank"><span class="background">position</span></a> property. Understanding positioning also helps in understanding normal flow, and what it means to move an item out of the normal flow.</p>
+
+<p>There are five types of positioning you should know about:</p>
+
+<ul>
+  <li><span class="bold">Static positioning</span> is the default that every element gets. It just means "put the element into its normal position in the document layout flow — nothing special to see here".</li>
+  <li><span class="bold">Relative positioning</span> allows you to modify an element's position on the page, moving it relative to its position in normal flow, as well as making it overlap other elements on the page.</li>
+  <li><span class="bold">Absolute positioning</span> moves an element completely out of the page's normal layout flow, like it's sitting on its own separate layer. From there, you can fix it to a position relative to the edges of its closest positioned ancestor (which becomes <span class="background">&lthtml&gt</span> if no other ancestors are positioned). This is useful for creating complex layout effects, such as tabbed boxes where different content panels sit on top of one another and are shown and hidden as desired, or information panels that sit off-screen by default, but can be made to slide on screen using a control button.</li>
+  <li><span class="bold">Fixed positioning</span> is very similar to absolute positioning except that it fixes an element relative to the browser viewport, not another element. This is useful for creating effects such as a persistent navigation menu that always stays in the same place on the screen as the rest of the content scrolls.</li>
+  <li><span class="bold">Sticky positioning</span> is a newer positioning method that makes an element act like <span class="background">position: relative</span> until it hits a defined offset from the viewport, at which point it acts like <span class="background">position: fixed</span>.</li>
+</ul>
+</section>
+
+<section class="main-section" id="Table_layout">
+<header>Table layout</header>
+
+<p>When looking at the source code on older websites, you may discover that tables have been used for laying out forms. HTML tables should be reserved for displaying tabular data. Using tables for anything other than tabular data has many problems: table layouts are inflexible, very heavy on markup, difficult to debug, and semantically wrong (e.g., screen reader users have problems navigating table layouts).</p>
+
+<p>The appearance of a table on a webpage when you use table markup is due to a set of CSS properties that define its layout. These same properties can also be used to lay out elements that aren't tables, a use which is sometimes described as "using CSS tables". The example below shows one such use.</p>
+
+<p>Let's look at an example. First, some simple markup that creates an HTML form. Each input element has a label. We also included a caption inside a paragraph; though another option is using a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset" target="_blank"><span class="background">&ltfieldset&gt</span></a> with a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend" target="_blank"><span class="background">&ltlegend&gt</span></a>. Each label/input pair is wrapped in a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div" target="_blank"><span class="background">&ltdiv&gt</span></a> for layout purposes.</p>
+
+<p>As for the CSS, most of it's fairly ordinary except for the uses of the <span class="background">display</span> property. The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form" target="_blank"><span class="background">&ltform&gt</span></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div" target="_blank"><span class="background">&ltdiv&GT</span></a>s, and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label" target="_blank"><span class="background">&ltlabel&gt</span></a>s and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" target="_blank"><span class="background">&ltinput&gt</span></a>s have been told to display like a table, table rows, and table cells respectively. Basically, they'll act like HTML table markup, causing the labels and inputs to line up nicely by default. All we then have to do is add a bit of sizing, margin, etc., to make everything look a bit nicer and we're done.</p>
+
+<p>You'll notice that the caption paragraph has been given <span class="background">display: table-caption</span>;, which makes it act like a table <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption" target="_blank"><span class="background">&ltcaption&gt</span></a>, and <span class="background">caption-side: bottom</span>; to tell the caption to sit on the bottom of the table for styling purposes, even though the markup is before the <span class="background">&ltinput&gt</span> elements in the source. This allows for a nice bit of flexibility.</p>
+</section>
+
+<section class="main-section" id="Multi-column_layout">
+<header>Multi-column layout</header>
+
+<p>The multi-column layout CSS module provides us a way to lay out content in columns, similar to how text flows in a newspaper. While reading up and down columns is less useful in a web context due to the users having to scroll up and down, arranging content into columns can, nevertheless, be a useful technique.</p>
+
+<p>To turn a block into a multi-column container, we use either the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-count" target="_blank"><span class="background">column-count</span></a> property, which tells the browser <i>how many</i> columns we would like to have, or the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-width" target="_blank"><span class="background">column-width</span></a> property, which tells the browser to fill the container with as many columns as possible of a <i>specified width</i>.</p>
+</section>
+
+<section class="main-section" id="Summary">
+<header>Summary</header>
+
+<p>This article has provided a brief summary of all the layout technologies you should know about. Read on for more information on each individual technology!</p>
+</section>
+
+</main>
+
+  </body>
+
+</html>
