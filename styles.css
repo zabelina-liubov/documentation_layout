@@ -1,0 +1,164 @@
+html,
+body {
+  min-width: 290px;
+  color: #ffffff;
+  background-color: #000000;
+  font-family: 'Open Sans', Arial, sans-serif;
+  line-height: 1.5;
+}
+
+#navbar {
+  position: fixed;
+  min-width: 290px;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 100%;
+  border-right: solid;
+  border-color: rgba(0, 22, 22, 0.6);
+}
+
+td {
+  border: white 1px solid;
+  padding: 5px;
+}
+
+table
+{border-collapse: collapse; 
+
+}
+
+header {
+  color: #ffffff;
+  margin: 10px;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: thin;
+}
+
+#main-doc header {
+  text-align: left;
+  margin: 0px;
+}
+
+#navbar ul {
+  height: 88%;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#navbar li {
+  color: #ffffff;
+  border-top: 1px solid;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+#navbar a {
+  display: block;
+  padding: 10px 30px;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#main-doc {
+  position: absolute;
+  margin-left: 310px;
+  padding: 20px;
+  margin-bottom: 110px;
+}
+
+
+
+section li {
+  margin: 15px 0px 0px 20px;
+}
+
+.code {
+  display: block;
+  text-align: left;
+  white-space: pre-line;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 2;
+  background-color: #000000;
+  padding-left: 15px;
+  margin: 15px;
+  border-radius: 5px;
+  border: white solid 1px;
+}
+
+.background {
+    background: rgb(67,75,77);
+    padding: 0.125rem 0.25rem;
+    border-radius: 5px;
+    font-family: monospace;
+    }
+
+a {
+  color: rgb(230,168,215);
+}
+
+a:visited {
+  color: rgb(224,176,255);
+}
+
+a:hover {
+  color: white;
+}
+
+@media only screen and (max-width: 815px) {
+  /* For mobile phones: */
+  #navbar ul {
+    border: 1px solid;
+    height: 207px;
+  }
+
+  #navbar {
+    background-color: #000000;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-height: 275px;
+    border: none;
+    z-index: 1;
+    border-bottom: 2px solid;
+  }
+
+  #main-doc {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 270px;
+  }
+  .background {
+    background: rgb(67,75,77);
+    padding: 0.125rem 0.25rem;
+    border-radius: 5px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+  #main-doc {
+    margin-left: -10px;
+  }
+
+  code {
+    margin-left: 20px;
+    width: 100%;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 45px;
+    min-width: 233px;
+  }
+  .background {
+    background: rgb(67,75,77);
+    padding: 0.125rem 0.25rem;
+    border-radius: 5px;
+    }
+}
